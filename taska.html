@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PDGMS Leadership Portfolio — Rajan Iyer</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f5f5f2;
+  --surface:#ffffff;
+  --surface2:#f1efe8;
+  --text:#2c2c2a;
+  --muted:#5f5e5a;
+  --hint:#888780;
+  --border:rgba(0,0,0,0.1);
+  --border-strong:rgba(0,0,0,0.18);
+  --accent:#185fa5;
+  --accent-bg:#e6f1fb;
+  --success:#3b6d11;
+  --success-bg:#eaf3de;
+  --warning:#854f0b;
+  --warning-bg:#faeeda;
+  --danger:#a32d2d;
+  --danger-bg:#fcebeb;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --radius-xl:16px;
+}
+body{
+  font-family:Inter,system-ui,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding:2.5rem 2rem;
+}
+.wrap{max-width:1100px;margin:auto}
+
+/* HERO */
+.hero{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.hero-id{display:flex;align-items:center;gap:1rem}
+.avatar{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--accent-bg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:500;color:var(--accent);
+  border:0.5px solid rgba(24,95,165,0.25);flex-shrink:0;
+}
+.hero-name{font-size:24px;font-weight:500;margin-bottom:4px}
+.hero-sub{font-size:13px;color:var(--muted);line-height:1.6}
+.score-pill{
+  background:var(--surface);border:0.5px solid var(--border-strong);
+  border-radius:var(--radius-lg);padding:1.25rem 1.75rem;
+  text-align:center;min-width:180px;
+}
+.score-num{font-size:44px;font-weight:500;color:var(--accent);line-height:1}
+.score-lbl{font-size:12px;color:var(--muted);margin-top:4px}
+.pace-tag{
+  display:inline-flex;align-items:center;gap:5px;margin-top:10px;
+  font-size:12px;font-weight:500;color:var(--success);
+  background:var(--success-bg);padding:4px 10px;border-radius:var(--radius-md);
+}
+
+/* LAYOUT ROWS */
+.grid-wide{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:1rem}
+.grid-mid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem}
+
+/* CARDS */
+.card{
+  background:var(--surface);border:0.5px solid var(--border);
+  border-radius:var(--radius-lg);padding:1.25rem 1.5rem;
+}
+.card-title{
+  font-size:12px;font-weight:500;color:var(--hint);
+  text-transform:uppercase;letter-spacing:0.07em;
+  margin-bottom:1rem;display:flex;align-items:center;gap:6px;
+}
+.card-title i{font-size:14px}
+
+/* STAT ROW */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-bottom:1rem}
+.stat{background:var(--surface2);border-radius:var(--radius-md);padding:0.75rem 1rem}
+.stat-lbl{font-size:12px;color:var(--muted);margin-bottom:4px}
+.stat-val{font-size:22px;font-weight:500;color:var(--text)}
+.stat-val.accent{color:var(--accent)}
+.stat-val.green{color:var(--success)}
+
+.narrative{font-size:14px;color:var(--muted);line-height:1.7}
+.divider{height:0.5px;background:var(--border);margin:0.875rem 0}
+
+/* LISTS */
+.list{display:flex;flex-direction:column;gap:0.625rem;margin-top:0.75rem}
+.item{
+  background:var(--surface2);border-radius:0 var(--radius-md) var(--radius-md) 0;
+  padding:0.875rem 1rem;border-left:2.5px solid var(--accent);
+}
+.item h4{font-size:14px;font-weight:500;margin-bottom:3px;color:var(--text)}
+.item p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* BARS */
+.bar-group{display:flex;flex-direction:column;gap:0.875rem}
+.bar-row{display:flex;flex-direction:column;gap:5px}
+.bar-hdr{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.bar-hdr span:last-child{font-weight:500;color:var(--text)}
+.bar-track{width:100%;height:7px;border-radius:999px;background:var(--surface2);overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;background:var(--accent)}
+.bar-fill.warn{background:var(--warning)}
+
+/* KPI */
+.kpi-list{display:flex;flex-direction:column;gap:0.5rem;margin-top:0.5rem}
+.kpi-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0.625rem 0.875rem;background:var(--surface2);
+  border-radius:var(--radius-md);font-size:13px;
+}
+.kpi-row span:first-child{color:var(--muted)}
+.kpi-val{font-weight:500;color:var(--text)}
+.kpi-val.over{color:var(--success)}
+.kpi-val.under{color:var(--warning)}
+.kpi-note{font-size:11px;color:var(--hint);font-weight:400;margin-left:3px}
+
+/* CONSTRAINTS */
+.constraint-meta{display:flex;gap:0.75rem;margin-bottom:0.75rem}
+.cmeta{flex:1;background:var(--surface2);border-radius:var(--radius-md);padding:0.75rem 1rem}
+.cmeta-lbl{font-size:12px;color:var(--muted);margin-bottom:3px}
+.cmeta-val{font-size:20px;font-weight:500;color:var(--text)}
+.status-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:500;padding:3px 8px;
+  border-radius:var(--radius-md);margin-top:6px;
+}
+.resolved{background:var(--success-bg);color:var(--success)}
+.open{background:var(--danger-bg);color:var(--danger)}
+
+/* TIMELINE */
+.tl-tag{
+  display:inline-flex;align-items:center;gap:6px;font-size:12px;
+  font-weight:500;color:var(--success);background:var(--success-bg);
+  padding:4px 10px;border-radius:var(--radius-md);margin-bottom:1rem;
+}
+.timeline-wrap{position:relative;padding-top:0.5rem;margin-bottom:1rem}
+.tl-track{
+  position:absolute;top:10px;left:0;right:0;
+  height:1.5px;background:var(--border);z-index:0;
+}
+.tl-progress{
+  position:absolute;top:10px;left:0;width:38%;
+  height:1.5px;background:var(--accent);z-index:1;
+}
+.tl-nodes{display:flex;justify-content:space-between;position:relative;z-index:2}
+.tl-node{text-align:center;width:20%}
+.tl-dot{
+  width:20px;height:20px;border-radius:50%;margin:0 auto 8px;
+  display:flex;align-items:center;justify-content:center;font-size:9px;
+}
+.tl-dot.done{background:var(--accent-bg);border:1.5px solid var(--accent);color:var(--accent)}
+.tl-dot.current{background:var(--accent);border:1.5px solid var(--accent);color:#fff;font-size:8px}
+.tl-dot.future{background:var(--surface2);border:1.5px solid var(--border-strong);color:var(--hint)}
+.tl-label{font-size:13px;font-weight:500;color:var(--text)}
+.tl-year{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* FOOTER */
+footer{text-align:center;margin-top:2rem;font-size:12px;color:var(--hint)}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  body{padding:1.25rem 1rem}
+  .grid-wide,.grid-mid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:repeat(2,1fr)}
+  .tl-nodes{gap:8px}
+  .tl-label,.tl-year{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-id">
+      <div class="avatar">RI</div>
+      <div>
+        <div class="hero-name">Rajan Iyer</div>
+        <div class="hero-sub">
+          Production Planning Lead — Sterile Injectables<br>
+          Facility 3 Commercialization · Vayura Lifesciences<br>
+          ID: PDGMS-EMP-00512
+        </div>
+      </div>
+    </div>
+    <div class="score-pill">
+      <div class="score-num" id="scoreNum">0</div>
+      <div class="score-lbl">Composite leadership score</div>
+      <div class="pace-tag"><i class="ti ti-trending-up"></i> Ahead of career pace</div>
+    </div>
+  </div>
+
+  <div class="grid-wide">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-layout-dashboard"></i> Executive summary</div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-lbl">Current level</div>
+          <div class="stat-val accent">V2</div>
+        </div>
+        <div class="stat">
+          <div class="stat-lbl">Previous score</div>
+          <div class="stat-val">64</div>
+        </div>
+        <div class="stat">
+          <div class="stat-lbl">Score growth</div>
+          <div class="stat-val green">+7</div>
+        </div>
+        <div class="stat">
+          <div class="stat-lbl">Week</div>
+          <div class="stat-val">W13</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="narrative">Rajan achieved his strongest month since joining the organization. Major acceleration came from resolving the Facility 3 validation bottleneck and delivering 16 out of 20 assigned deliverables. Delivery and IP performance now exceed V3 thresholds — the key remaining gap is structured framework application.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-chart-bar"></i> Capability growth</div>
+      <div class="bar-group">
+        <div class="bar-row">
+          <div class="bar-hdr"><span>Delivery</span><span>80%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-hdr"><span>IP score</span><span>74%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:74%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-hdr"><span>KPI score</span><span>68%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:68%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-hdr"><span>Framework</span><span>52%</span></div>
+          <div class="bar-track"><div class="bar-fill warn" style="width:52%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-mid">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-medal"></i> Contribution highlights</div>
+      <div style="display:flex;gap:0.75rem;margin-bottom:0.75rem">
+        <div class="stat" style="flex:1">
+          <div class="stat-lbl">IP commits</div>
+          <div class="stat-val accent">7</div>
+        </div>
+        <div class="stat" style="flex:1">
+          <div class="stat-lbl">Deliverables</div>
+          <div class="stat-val">16 / 20</div>
+        </div>
+      </div>
+      <div class="list">
+        <div class="item">
+          <h4>Process validation protocol</h4>
+          <p>Broke a long-standing regulatory bottleneck using joint review sessions.</p>
+        </div>
+        <div class="item">
+          <h4>Deviation investigation SOP</h4>
+          <p>Standardized across all manufacturing facilities.</p>
+        </div>
+        <div class="item">
+          <h4>Yield optimization report</h4>
+          <p>Identified 8% fill-weight variance in vial line 2.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-target"></i> KPI impact</div>
+      <div class="kpi-list">
+        <div class="kpi-row">
+          <span>Equipment qualifications</span>
+          <span class="kpi-val over">10 <span class="kpi-note">vs 8 target</span></span>
+        </div>
+        <div class="kpi-row">
+          <span>SOPs approved</span>
+          <span class="kpi-val over">7 <span class="kpi-note">vs 5 target</span></span>
+        </div>
+        <div class="kpi-row">
+          <span>Batch success rate</span>
+          <span class="kpi-val under">88% <span class="kpi-note">vs 92% target</span></span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="narrative" style="font-size:13px">Equipment and SOP delivery outpaces targets. Batch success rate is the lone KPI below threshold — tied to the open contract lab dependency.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-alert-triangle"></i> Constraint patterns</div>
+      <div class="constraint-meta">
+        <div class="cmeta">
+          <div class="cmeta-lbl">Total</div>
+          <div class="cmeta-val">8</div>
+        </div>
+        <div class="cmeta">
+          <div class="cmeta-lbl">Resolved</div>
+          <div class="cmeta-val" style="color:var(--success)">5</div>
+        </div>
+        <div class="cmeta">
+          <div class="cmeta-lbl">Open</div>
+          <div class="cmeta-val" style="color:var(--danger)">3</div>
+        </div>
+      </div>
+      <div class="list">
+        <div class="item" style="border-left-color:var(--success)">
+          <h4>HEPA filter delay</h4>
+          <p>Vendor lead time caused 2 failed batches and investigation delays.</p>
+          <div class="status-pill resolved"><i class="ti ti-check"></i> Resolved</div>
+        </div>
+        <div class="item" style="border-left-color:var(--danger)">
+          <h4>Contract lab turnaround</h4>
+          <p>4 deviations remain open due to external dependency delays.</p>
+          <div class="status-pill open"><i class="ti ti-clock"></i> Open</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><i class="ti ti-route"></i> Career trajectory</div>
+    <div class="tl-tag"><i class="ti ti-trending-up"></i> Projected V3 by February 2027 — ahead of schedule</div>
+    <div class="timeline-wrap">
+      <div class="tl-track"></div>
+      <div class="tl-progress"></div>
+      <div class="tl-nodes">
+        <div class="tl-node">
+          <div class="tl-dot done"><i class="ti ti-check"></i></div>
+          <div class="tl-label">V1</div>
+          <div class="tl-year">2024</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot current">●</div>
+          <div class="tl-label">V2</div>
+          <div class="tl-year">Now</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot future"></div>
+          <div class="tl-label">V3</div>
+          <div class="tl-year">2027</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot future"></div>
+          <div class="tl-label">V4</div>
+          <div class="tl-year">2030</div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot future"></div>
+          <div class="tl-label">V5</div>
+          <div class="tl-year">2036</div>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <p class="narrative">Delivery and IP metrics already clear V3 thresholds. Framework application at 52% is the primary focus for the next review cycle — closing this gap accelerates the V3 promotion timeline from 2027 to a potential mid-2026 target.</p>
+  </div>
+
+  <footer>PDGMS Leadership Portfolio · Generated April 2026</footer>
+</div>
+
+<script>
+const el = document.getElementById('scoreNum');
+let n = 0;
+const id = setInterval(() => {
+  n++;
+  el.textContent = n;
+  if (n >= 71) clearInterval(id);
+}, 18);
+</script>
+</body>
+</html>
